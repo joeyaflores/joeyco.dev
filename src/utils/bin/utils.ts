@@ -45,7 +45,7 @@ export const donate = async (args?: string[]): Promise<string> => {
 };
 
 export const credit = async (args?: string[]): Promise<string> => {
-  return `Huge shoutout to m4tt72 for the original terminal project. I just added some of my own stuff to it. More to come! \n\nUse the 'repo' command to check out the original project. Or the 'donate' command to donate to the original author.
+  return `Huge shoutout to m4tt72 for the open-source terminal project. I just added some of my own stuff to it. More to come! \n\nUse the 'repo' command to check out the original project. Or the 'donate' command to donate to the original author.
   `;
 }
 

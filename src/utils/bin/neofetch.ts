@@ -3,9 +3,6 @@ import packageJson from '../../../package.json';
 import themes from '../../../themes.json';
 
 const macos = `
-
-Isn't this cool? I think so. Shoutout m4tt72. 
-
                     'c.
                  ,xNMM.
                .OMMMMo

@@ -22,15 +22,6 @@ export const email = async (args: string[]): Promise<string> => {
   return 'Opening mailto:joeyflores74@gmail.com...';
 };
 
-export const failure = async (args?: string[]): Promise<string> => {
-  await new Promise<void>(resolve => setTimeout(resolve, 1000));
-  
-  window.open('https://www.youtube.com/watch?v=uZwlAzr44ys');
-  
-  return 'Take notes from Giannis...';
-};
-
-
 export const credit = async (args?: string[]): Promise<string> => {
   let creds = args[0]
   switch (creds) {

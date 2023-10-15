@@ -81,7 +81,9 @@ db. 88  '8b  d8' 88.        88    Y8b  d8 '8b  d8' db 88  .8D 88.      '8bd8'
 Y8888P   'Y88P'  Y88888P    YP     'Y88P'  'Y88P'  VP Y8888D' Y88888P    YP    
                                                                               
 
-Type 'help' to see list of available commands.
+This is a terminal-like project built mostly in TypeScript. More features to come!
+
+Type 'help' and press enter to see list of available commands.
 
 --
 `;

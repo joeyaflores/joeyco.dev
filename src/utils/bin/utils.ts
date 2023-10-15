@@ -22,12 +22,12 @@ export const email = async (args: string[]): Promise<string> => {
   return 'Opening mailto:joeyflores74@gmail.com...';
 };
 
-export const sudo = async (args?: string[]): Promise<string> => {
-  // setTimeout(function () {
-  //   window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ');
-  // }, 1000);
+export const failure = async (args?: string[]): Promise<string> => {
+  setTimeout(function () {
+    window.open('https://www.youtube.com/watch?v=uZwlAzr44ys');
+  }, 1000);
 
-  return `Permission denied: unable to run the command '${args[0]}' as root. \nLogin coming soon...`;
+  return 'Take notes from Giannis...';
 };
 
 export const credit = async (args?: string[]): Promise<string> => {

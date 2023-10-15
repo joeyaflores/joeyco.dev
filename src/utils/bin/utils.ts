@@ -89,14 +89,6 @@ Type 'help' and press enter to see list of available commands.
 `;
 };
 
-export const salem = async (args?: string[]): Promise<string> => {
-  return `
-   /\`_/\`   --- [ Meow ]
-  ( o.o )
-   > ^ <
-  `
-}
-
 export const feedback = async (args?: string[]): Promise<string> => {
   return `
 I'd love to hear your feedback. Please feel free to reach out to me on LinkedIn or email. I'm always open to new ideas and suggestions.

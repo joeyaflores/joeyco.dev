@@ -49,21 +49,23 @@ export const credit = async (args?: string[]): Promise<string> => {
 
 export const bun = async (args?: string[]): Promise<string> => {
   return `
-  🚀 Powered by Bun Toolkit 🚀
-  ───────────────────────────────────────
-  Bun: The future of JavaScript & TypeScript development! Reimagining and optimizing the runtime, aiming to be the swift successor of Node.js.
-  
-  Features:
-  🚴‍♂️ Fast JavaScript runtime
-  🛠️ Comprehensive toolset: script runner, test runner & more
-  📦 Enhanced, speed-optimized package manager
-  🔄 Designed for minimal adjustments: Migrate from Node.js with ease
-  🌟 Continuously evolving for broader Node.js compatibility & framework integrations
-  
-  This current project is turbocharged by Bun, ensuring optimal performance and development experience. Get started, and feel the difference!
-  
-  This is my first project using Bun, so I'm still learning. But I'm excited to see what I can do with it! Can Bun overtake Node.js...? 🤔
-  
+This is my first project using the new & exciting Bun JavaScript toolkit. Stay tuned for more projects using Bun!
+
+To learn more about Bun, visit https://bun.sh/
+
+Here's a quick overview of Bun:
+
+🚀 Powered by Bun Toolkit 🚀
+───────────────────────────────────────
+Bun: The future of JavaScript & TypeScript development! Reimagining and optimizing the runtime, aiming to be the swift successor of Node.js.
+
+Features:
+🚴‍♂️ Fast JavaScript runtime
+🛠️ Comprehensive toolset: script runner, test runner & more
+📦 Enhanced, speed-optimized package manager
+🔄 Designed for minimal adjustments: Migrate from Node.js with ease
+🌟 Continuously evolving for broader Node.js compatibility & framework integrations
+
   `;
 }
 

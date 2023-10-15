@@ -23,12 +23,13 @@ export const email = async (args: string[]): Promise<string> => {
 };
 
 export const failure = async (args?: string[]): Promise<string> => {
-  setTimeout(function () {
-    window.open('https://www.youtube.com/watch?v=uZwlAzr44ys');
-  }, 1000);
-
+  await new Promise<void>(resolve => setTimeout(resolve, 1000));
+  
+  window.open('https://www.youtube.com/watch?v=uZwlAzr44ys');
+  
   return 'Take notes from Giannis...';
 };
+
 
 export const credit = async (args?: string[]): Promise<string> => {
   let creds = args[0]

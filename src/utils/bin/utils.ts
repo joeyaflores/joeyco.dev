@@ -1,3 +1,4 @@
+import { set } from 'date-fns';
 import packageJson from '../../../package.json';
 import * as bin from './index';
 
@@ -29,24 +30,21 @@ export const sudo = async (args?: string[]): Promise<string> => {
   return `Permission denied: unable to run the command '${args[0]}' as root. \nLogin coming soon...`;
 };
 
-
-export const repo = async (args?: string[]): Promise<string> => {
-  setTimeout(function () {
-    window.open('https://github.com/m4tt72/terminal', '_blank');
-  }, 1000);
-
-  return 'Opening repository...';
-};
-
-export const donate = async (args?: string[]): Promise<string> => {
-  window.open(packageJson.funding.url, '_blank');
-
-  return 'Opening donation url...';
-};
-
 export const credit = async (args?: string[]): Promise<string> => {
-  return `Huge shoutout to m4tt72 for the open-source terminal project. Personalized it and added some more features. More to come! \n\nUse the 'repo' command to check out the original project. Or the 'donate' command to donate to the original author.
-  `;
+  let creds = args[0]
+  switch (creds) {
+    case 'donate':
+      setTimeout(function () {
+        window.open(packageJson.funding.url, '_blank');
+      }, 800);
+      return 'Opening donation url...'
+    case 'repo':
+      setTimeout(function () {
+        window.open('https://github.com/m4tt72/terminal', '_blank');
+      }, 800);
+      return 'Opening repository...';
+  }
+  return `Huge shoutout to m4tt72 for the open-source terminal project. Personalized it and added some more features. More to come! \n\nUse the 'credit repo' command to check out the original project. Or the 'credit donate' command to donate to the original author.`;
 }
 
 export const bun = async (args?: string[]): Promise<string> => {

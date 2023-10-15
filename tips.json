@@ -1,0 +1,37 @@
+[
+    {
+        "name": "python",
+        "tips": [
+            "Use List Comprehensions: Simplifies the process of creating lists, making your code more concise.",
+            "Utilize Decorators: Enhances the functionality of your functions or classes, making your code more modular.",
+            "Adopt PEP 8 Guidelines: Following the style guide makes your code more readable and maintainable.",
+            "Write Docstrings: Enhances code documentation and helps in generating automatic documentation.",
+            "Leverage Generators: Efficient for iterating over large data sets as they yield items one at a time."
+        ]
+    },
+    {
+        "name": "golang",
+        "tips": [
+            "Leverage Multiple Return Values: Go supports multiple return values, which makes error handling more straightforward.",
+            "Utilize Interfaces: Enables polymorphism and makes your code more modular and easier to test.",
+            "Use Goroutines for Concurrency: Simplifies concurrent programming and enables efficient multitasking.",
+            "Error Checking: Always check for errors after function calls that return an error. This is crucial for robust error handling.",
+            "Write Unit Tests: Go has built-in support for testing, which improves code quality and makes future changes safer.",
+            "Use Buffered Channels: Improves performance by reducing the overhead of synchronization.",
+            "Use the Standard Library: The standard library is extensive and well-tested. Use it whenever possible."
+        ]
+    },
+    {
+        "name": "vue.js",
+        "tips": [
+            "Use Computed Properties: Simplifies complex logic in your templates, making the code more maintainable.",
+            "Use Vuex for State Management: Provides a centralized state management solution, making it easier to manage complex state logic.",
+            "Leverage Vue Router: Enhances navigation and enables features like lazy-loading, making your application more user-friendly.",
+            "Conditional Rendering with 'v-if' and 'v-show': Helps in optimizing rendering behavior based on conditions, improving UI performance.",
+            "Error Checking: Always check for errors after function calls that return an error. This is crucial for robust error handling.",
+            "Use Lifecycle Hooks: Provides hooks for adding code at different stages of the component lifecycle, offering more control over component behavior."
+
+
+        ]
+    }
+]

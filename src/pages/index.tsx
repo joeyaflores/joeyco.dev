@@ -6,6 +6,9 @@ import { Input } from '../components/input';
 import { useShell } from '../utils/shellProvider';
 import { useTheme } from '../utils/themeProvider';
 import config from '../../config.json';
+import dotenv from 'dotenv';
+dotenv.config();
+
 
 interface IndexPageProps {
   inputRef: React.MutableRefObject<HTMLInputElement>;

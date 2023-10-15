@@ -92,3 +92,11 @@ export const salem = async (args?: string[]): Promise<string> => {
    > ^ <
   `
 }
+
+export const feedback = async (args?: string[]): Promise<string> => {
+  return `
+I'd love to hear your feedback. Please feel free to reach out to me on LinkedIn or email. I'm always open to new ideas and suggestions.
+
+Curently working on allowing users to submit feedback directly from the terminal. Stay tuned!
+  `
+}

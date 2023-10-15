@@ -84,3 +84,11 @@ Type 'help' to see list of available commands.
 --
 `;
 };
+
+export const salem = async (args?: string[]): Promise<string> => {
+  return `
+   /\`_/\`   --- [ Meow ]
+  ( o.o )
+   > ^ <
+  `
+}

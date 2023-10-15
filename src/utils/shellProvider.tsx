@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { History } from '../interfaces/history';
 import * as bin from './bin';
-import { useTheme } from './themeProvider';
+// import { useTheme } from './themeProvider';
 
 interface ShellContextType {
   history: History[];
@@ -28,7 +28,7 @@ export const ShellProvider: React.FC<ShellProviderProps> = ({ children }) => {
   const [history, _setHistory] = React.useState<History[]>([]);
   const [command, _setCommand] = React.useState<string>('');
   const [lastCommandIndex, _setLastCommandIndex] = React.useState<number>(0);
-  const { theme, setTheme } = useTheme();
+  // const { theme, setTheme } = useTheme();
 
   useEffect(() => {
     setCommand('banner');
@@ -70,12 +70,12 @@ export const ShellProvider: React.FC<ShellProviderProps> = ({ children }) => {
     const [cmd, ...args] = command.split(' ').slice(1);
 
     switch (cmd) {
-      case 'theme':
-        const output = await bin.theme(args, setTheme);
+      // case 'theme':
+      //   const output = await bin.theme(args, setTheme);
 
-        setHistory(output);
+      //   setHistory(output);
 
-        break;
+      //   break;
       case 'clear':
         clearHistory();
         break;

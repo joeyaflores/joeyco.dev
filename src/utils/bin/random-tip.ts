@@ -5,10 +5,11 @@ export const tip = async (
     callback?: (value: string) => string,
   ): Promise<string> => {
   if (args.length === 0) {
-    return `Usage: tip [language]
+    return `Usage: tip [arg]
 Args:
 - ls: list all available programming languages
 - random: get a random programming language tip
+- language: get a tip for a specific programming language (e.g. tip golang)
 
 Example: 
 tip ls # to list all available programming languages
@@ -18,6 +19,7 @@ tip random # to get a random programming language tip`;
   switch (args[0]) {
     case 'ls':
       let result = Tips.map((tip) => tip.name.toLowerCase()).join(', ');
+      result += ' (e.g. tip golang)';
       result += '\n\n';
 
       return result;

@@ -45,13 +45,13 @@ export const donate = async (args?: string[]): Promise<string> => {
 };
 
 export const credit = async (args?: string[]): Promise<string> => {
-  return `Huge shoutout to m4tt72 for the open-source terminal project. I just added some of my own stuff to it. More to come! \n\nUse the 'repo' command to check out the original project. Or the 'donate' command to donate to the original author.
+  return `Huge shoutout to m4tt72 for the open-source terminal project. Personalized it and added some more features. More to come! \n\nUse the 'repo' command to check out the original project. Or the 'donate' command to donate to the original author.
   `;
 }
 
 export const bun = async (args?: string[]): Promise<string> => {
   return `
-  🚀 Powered by Bun Toolkit 🐇
+  🚀 Powered by Bun Toolkit 🚀
   ───────────────────────────────────────
   Bun: The future of JavaScript & TypeScript development! Reimagining and optimizing the runtime, aiming to be the swift successor of Node.js.
   
@@ -64,7 +64,7 @@ export const bun = async (args?: string[]): Promise<string> => {
   
   This current project is turbocharged by Bun, ensuring optimal performance and development experience. Get started, and feel the difference!
   
-  This is my first project using Bun, so I'm still learning. But I'm excited to see what I can do with it!
+  This is my first project using Bun, so I'm still learning. But I'm excited to see what I can do with it! Can Bun overtake Node.js...? 🤔
   
   `;
 }

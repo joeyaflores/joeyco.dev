@@ -6,8 +6,10 @@ import { Input } from '../components/input';
 import { useShell } from '../utils/shellProvider';
 import { useTheme } from '../utils/themeProvider';
 import config from '../../config.json';
+import { Analytics } from '@vercel/analytics/react';
 import dotenv from 'dotenv';
 dotenv.config();
+
 
 
 interface IndexPageProps {
@@ -47,7 +49,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ inputRef }) => {
       >
         <div ref={containerRef} className="overflow-y-auto h-full">
           <History history={history} />
-
+          <Analytics></Analytics>
           <Input inputRef={inputRef} containerRef={containerRef} />
         </div>
       </div>

@@ -34,18 +34,21 @@ const buildEndpoint = (date: string) => {
 };
 
 const fetchGames = async (endpoint: string) => {
-  try {
-    const response = await axios.get(endpoint);
-    const data = response.data;
-    if (data.length === 0) {
-      return 'No games that day';
+    try {
+      const response = await axios.get(endpoint);
+      const data = response.data;
+      if (data.length === 0) {
+        return 'No games that day';
+      }
+      return formatGames(data);
+    } catch (error) {
+      if (error.response && error.response.status === 400) {
+        return 'Invalid command. Check usage: mlb [date] (mmddyyyy)';
+      }
+      return `An error occurred: ${error}`;
     }
-    return formatGames(data);
-  } catch (error) {
-    return `An error occurred: ${error}`;
-  }
-};
-
+  };
+  
 const formatGames = (games: any[]) => {
   let output = '';
   for (const game of games) {

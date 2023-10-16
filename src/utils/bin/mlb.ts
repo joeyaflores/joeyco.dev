@@ -14,7 +14,9 @@ export const mlb = async (args: string[]): Promise<string> => {
 };
 
 const usageInstruction = () => `
-  usage: mlb [date] (mmddyyyy)
+Command to get MLB scores for a given date.
+
+usage: mlb [date] (mmddyyyy)
 `;
 
 const formatDate = (dateStr: string) => {

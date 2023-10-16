@@ -52,13 +52,26 @@ const fetchGames = async (endpoint: string) => {
   };
   
 const formatGames = (games: any[]) => {
-  let output = '';
-  for (const game of games) {
-    if (game.Status === 'Final' || game.Status === 'InProgress') {
+let output = '';
+for (const game of games) {
+  if (game.Status === 'Final') {
       output += `${game.AwayTeam} ${game.AwayTeamRuns} @ ${game.HomeTeam} ${game.HomeTeamRuns}\n`;
-    } else if (game.Status === 'Scheduled') {
-      output += `${game.AwayTeam} @ ${game.HomeTeam} - ${game.DateTime}\n`;
-    }
+  } else if (game.Status === 'InProgress') {
+      output += `${game.AwayTeam} ${game.AwayTeamRuns} @ ${game.HomeTeam} ${game.HomeTeamRuns} (Game is in progress. Score may be inaccurate.)\n`;
+  } else if (game.Status === 'Scheduled') {
+      const gameDate = new Date(game.DateTime);
+      const options: Intl.DateTimeFormatOptions = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+      };
+      const formattedDate = gameDate.toLocaleDateString('en-US', options);
+      output += `${game.AwayTeam} @ ${game.HomeTeam} - ${formattedDate} EST\n`;
   }
-  return output || 'No games that day';
+}
+return output || 'No games that day';
 };
+  

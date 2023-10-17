@@ -1,10 +1,7 @@
 import { MongoClient } from 'mongodb';
 
-const uri = process.env.MONGODB_URI // Replace with your MongoDB URI
+const uri = process.env.FEEDBACK_MONGODB_URI // Replace with your MongoDB URI
 
-
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
-// console.log(uri);
 const client = new MongoClient(uri);
   async function run() {
     try {
@@ -14,8 +11,9 @@ const client = new MongoClient(uri);
       await client.db("admin").command({ ping: 1 });
     //   console.log("Pinged your deployment. You successfully connected to MongoDB!");
       const collection = client.db("test-db").collection("feedback");
+      
     
-      const data = await collection.find({}).toArray();
+    //   const data = await collection.find({}).toArray();
     //   console.log(data);
     } finally {
       // Ensures that the client will close when you finish/error

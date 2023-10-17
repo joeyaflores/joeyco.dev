@@ -2,7 +2,7 @@
 
 A terminal style website
 
-![screenshot](/docs/screenshot.png)
+![screenshot](/docs/screen.png)
 
 ## why?
 

@@ -2,7 +2,6 @@ import axios from "axios"
 
 export const feedback = async (args?: string[]): Promise<string> => {
     let first_arg = args[0]
-    console.log(first_arg)
     if(first_arg === "-s" || first_arg === "--submit"){
         let next_arg = args[1]
         if(next_arg === undefined){
@@ -41,7 +40,6 @@ const submitFeedback = async (feedback: string) => {
         `;
       }
     } catch (error) {
-      console.error(`Error submitting feedback: ${error}`);
       return `
   Oops! An error occurred while submitting your feedback. Please try again later.
       `;

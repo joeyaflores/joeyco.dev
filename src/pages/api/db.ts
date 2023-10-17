@@ -7,7 +7,8 @@ export default async function handler(
 ) {
   try {
     await client.connect();
-    const collection = client.db("test-db").collection("feedback");
+    const db_name = process.env.MONGODB_DB
+    const collection = client.db(db_name).collection("feedback");
     
     const data = await collection.find({}).toArray();
     // console.log(data);

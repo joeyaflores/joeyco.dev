@@ -6,4 +6,5 @@ export * from './neofetch';
 export * from './cowsay';
 export * from './random-tip';
 export * from './nfl';
+export * from './database';
 // export * from './mlb';

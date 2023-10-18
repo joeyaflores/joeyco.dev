@@ -1,18 +1,43 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import client from '../../../utils/mongo-client';
+import { bug, feature, ui } from '../../../lib/feedback';
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  try {
-    await client.connect();
-    const collection = client.db("test-db").collection("feedback");
-    const insert = await collection.insertOne(req.body);
-    res.status(200).json(insert);
-  } catch (error) {
-    res.status(500).json({ error: "An error occurred." });
-  } finally {
-    await client.close();
+  let data = req.body;
+  let description = data.description;
+  let feedback_type = data.feedback_type.replace('--', '');
+  
+ if (feedback_type === 'bug') {
+    try {
+      const result = await bug(description, feedback_type);
+      return res.status(200).json(result);
+    } catch (e: any) {
+      return res.status(500).json({
+        error: e.toString()
+      });
+    }
   }
+  if (feedback_type === 'feature') {
+    try {
+      const result = await feature(description, feedback_type);
+      return res.status(200).json(result);
+    } catch (e: any) {
+      return res.status(500).json({
+        error: e.toString()
+      });
+    }
+  }
+  if (feedback_type === 'ui') {
+    try {
+      const result = await ui(description, feedback_type);
+      return res.status(200).json(result);
+    } catch (e: any) {
+      return res.status(500).json({
+        error: e.toString()
+      });
+    }
+  }
+
 }

@@ -1,55 +1,85 @@
 import axios from "axios"
 
 export const feedback = async (args?: string[]): Promise<string> => {
-    let first_arg = args[0]
-    if(first_arg === "-s" || first_arg === "--submit"){
-        let next_arg = args[1]
-        if(next_arg === undefined){
-            return usageInstruction()
-        }
-        else{
-            // validate as string
-            submitFeedback(next_arg)
+  if (args?.length) {
+    const joinedArgs = args.join(' ');
+    const match = joinedArgs.match(/--\w+\s+"([^"]+)"/);
+    if (match) {
+        const argType = match[0].split(' ')[0]; // e.g. --bug, --feature, --ui
+        const feedbackText = match[1]; // e.g. "I found a bug in the program"
+        if (['--bug', '--feature', '--ui', '--other'].includes(argType)) {
+            return await submitFeedback(argType, feedbackText);
         }
     }
-    return `
-I'd love to hear your feedback. Please feel free to reach out to me on LinkedIn or email. I'm always open to new ideas and suggestions.
-  
-Curently working on allowing users to submit feedback directly from the terminal. Stay tuned!
-    `
+}
+return usageInstruction();
 }
 
-const submitFeedback = async (feedback: string) => {
-    try {
-      // Submit feedback to database
-      const response = await axios.post("http://localhost:3000/api/submit-feedback", {
-        feedback
-      });
-  
-      if (response.status === 201) {
-        // Optionally, send email to the developer here
-        // You can use an emailing service like SendGrid, Nodemailer, etc.
-        
-        // Return a confirmation message
-        return `
-  Thank you for your feedback! I'll be sure to take it into consideration.
-        `;
-      } else {
-        return `
-  Oops! Something went wrong. Please try again later.
-        `;
-      }
-    } catch (error) {
+const submitFeedback = async (feedbackType: string, description: string): Promise<string> => {
+  description = description.trim();
+
+  if (description === undefined || description.length < 1) {
+    return `
+Please provide a description of your feedback.
+    `;
+  }
+  if (description.length > 280) {
+    return `
+Please limit your feedback to 280 characters. Basically, a tweet.
+    `;
+  }
+  if (description.length < 10) {
+    return `
+Please provide a more detailed description of your feedback.
+    `;
+  }
+  switch (feedbackType) {
+    case "--bug":
+      return await sendFeedback(description, feedbackType);
+    case "--feature":
+      return await sendFeedback(description, feedbackType);
+    case "--ui":
+      return await sendFeedback(description, feedbackType);
+    case "--other":
+      return await sendFeedback(description, feedbackType);
+    default:
       return `
-  Oops! An error occurred while submitting your feedback. Please try again later.
+Please provide a valid feedback type.
+      `;
+  }
+};
+
+const sendFeedback = async (description: string, feedback_type: string): Promise<string> => {
+  try {
+    const response = await axios.post("https://www.joeyco.dev/api/submit-feedback", {
+      description, feedback_type
+    });
+    if (response.status === 200) {
+      // Setup email to send to myself
+      return `
+Feedback submitted successfully. Thank you! 🤝
       `;
     }
-  };
+  } catch (error) {
+    return `
+Oops! An error occurred while submitting your feedback. Please try again.
+    `;
+  }
+}
 
 const usageInstruction = () => `
-Command to give feedback to the developer.
+Command to give feedback. Roast me, please.
   
-usage: feedback [args]
+usage: feedback [args] [feedback]
+
 args:
-    -s, --submit: submit feedback directly from the terminal
+    --bug [bug description]
+    --feature [feature description]
+    --ui [ui description]
+    
+feedback:
+    Text describing the feedback. Must be in quotation marks.
+
+Examples:
+    feedback --bug "I found a bug in the program" (include any contact info, if desired)
     `;

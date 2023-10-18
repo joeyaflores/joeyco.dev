@@ -8,6 +8,8 @@ import { useTheme } from '../utils/themeProvider';
 import config from '../../config.json';
 import { Analytics } from '@vercel/analytics/react';
 import dotenv from 'dotenv';
+import { GetStaticProps } from 'next';
+import clientPromise from '../../utils/mongo-client';
 dotenv.config();
 
 
@@ -55,6 +57,14 @@ const IndexPage: React.FC<IndexPageProps> = ({ inputRef }) => {
       </div>
     </>
   );
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  await clientPromise; // Assuming clientPromise will reject and throw an error if anything is wrong.
+  
+  return {
+    props: {}
+  };
 };
 
 export default IndexPage;

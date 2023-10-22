@@ -36,7 +36,7 @@ export const credit = async (args?: string[]): Promise<string> => {
       }, 800);
       return 'Opening repository...';
   }
-  return `Huge shoutout to m4tt72 for the open-source terminal project. Personalized it and added some more features. More to come! \n\nUse the 'credit repo' command to check out the original project. Or the 'credit donate' command to donate to the original author.`;
+  return `Huge shoutout to m4tt72 for the open-source terminal project. Personalized it and added some more features. More to come! \nUse the 'credit repo' command to check out the original project. Or the 'credit donate' command to donate to the original author.`;
 }
 
 export const bun = async (args?: string[]): Promise<string> => {
@@ -62,7 +62,7 @@ Features:
 }
 
 
-export const banner = (args?: string[]): string => {
+export const home = (args?: string[]): string => {
   return `
                                                         
   d88bb  .d88b.  d88888b db    db  .o88b.  .d88b.     d8888b. d88888b db    db 

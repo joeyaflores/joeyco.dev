@@ -80,3 +80,11 @@ Type 'help' and press enter to see list of available commands.
 --
 `;
 };
+
+export const ls = async (args?: string[]): Promise<string> => {
+  return await help(args);
+};
+
+export const vi = (args?: string[]): string => {
+  return 'Wouldn\'t it be cool if this was a real terminal...?';
+}
